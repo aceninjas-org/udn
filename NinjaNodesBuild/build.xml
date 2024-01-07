@@ -1,0 +1,119 @@
+<project name="NinjaNodes" default="build">
+	<property name="ace.dir" value="C:\Applications\ACE\11.0.0.13" />
+	<property name="project.dir" value="./../${ant.project.name}" />		
+	<property name="build.dir" value="./build" />
+	<property name="udn.src.dir" value="${project.dir}/src" />
+	
+	<property name="par.project.dir" value="./../${ant.project.name}Par" />
+	<property name="par.src.dir" value="${par.project.dir}/src" />
+	
+	<property name="dist.dir" value="./dist" />
+	
+	<tstamp>
+		<format property="build.datetime" pattern="yyyyMMddHHmm" />
+	</tstamp>
+	
+	
+	<path id="build.class.path">							
+		<fileset dir="lib" includes="*.jar" />
+		<fileset dir="${project.dir}/lib" includes="*.jar" />
+		<fileset dir="${ace.dir}/tools/plugins" includes="*.jar" />
+	</path>
+	
+	<path id="par.build.class.path">					
+		<fileset dir="${par.project.dir}/lib" includes="*.jar" />
+		<fileset dir="lib" includes="*.jar" />
+	</path>
+	
+	<target name="prepare">
+		<delete dir="${build.dir}" />		
+		<mkdir dir="${build.dir}/META-INF" />
+		<mkdir dir="${build.dir}/tmp/classes" />	
+	</target>
+	<target name="prepare.par">
+		<delete dir="${build.dir}" />				
+		<mkdir dir="${build.dir}/classes" />	
+	</target>
+	<target name="clean">
+		<delete dir="${build.dir}" />		
+	</target>
+	
+	<target name="package">
+		<copy file="${project.dir}/META-INF/MANIFEST.MF" todir="${build.dir}/tmp" />
+		<replace file="${build.dir}/tmp/MANIFEST.MF">
+		<replacefilter token=":=" value="=" />
+		<replacefilter token=":" value="=" />
+		<replacefilter token=".qualifier" value="" />
+		<replacetoken>;</replacetoken>
+		<replacevalue>
+		</replacevalue>
+		</replace>
+		<property file="${build.dir}/tmp/MANIFEST.MF"/>
+		
+		
+		<copy file="${project.dir}/META-INF/MANIFEST.MF" todir="${build.dir}/META-INF" />
+		<replace file="${build.dir}/META-INF/MANIFEST.MF">
+			<replacefilter token="Bundle-Version: ${Bundle-Version}" value="Bundle-Version: ${Bundle-Version}.${build.datetime}" />
+		</replace>
+		<copy todir="${build.dir}/org">
+	   		<fileset dir="${project.dir}/org"/>
+	  	</copy>
+		<copy todir="${build.dir}/icons">
+			<fileset dir="${project.dir}/icons"/>
+	  	</copy>
+				
+		<copy todir="${build.dir}/lib">
+			<fileset dir="${project.dir}/lib"/>
+	  	</copy>
+		
+		<delete file="${build.dir}/generated/${ant.project.name}Java" />
+		
+		<javac destdir="${build.dir}/" deprecation="false" failonerror="true" debug="on">
+			<src path="${udn.src.dir}" />
+			<classpath refid="build.class.path" />					
+		</javac>
+		
+		<jar destfile="${build.dir}/generated/${ant.project.name}Java.jar" >
+			<fileset dir="${build.dir}/tmp/classes"/>								
+		</jar>
+		
+		<copy file="${project.dir}/plugin.xml" todir="${build.dir}"/>
+		<copy file="${project.dir}/build.properties" todir="${build.dir}"/>
+		
+		<copy file="${project.dir}/HelpContexts.xml" todir="${build.dir}"/>
+		<copy file="${project.dir}/palette.xmi" todir="${build.dir}"/>
+		<copy file="${project.dir}/palette.properties" todir="${build.dir}"/>	
+	
+		
+		<property name="plugin.jarname" value="${ant.project.name}_${Bundle-Version}.${build.datetime}" />
+		<zip destfile="./dist/${plugin.jarname}.jar">
+			<zipfileset dir="${build.dir}"    excludes="tmp/**" />			
+		</zip>
+	</target>
+
+	<target name="par">		
+		<javac destdir="${build.dir}/classes" deprecation="false" failonerror="true" debug="on">
+			<src path="${par.src.dir}" />
+			<classpath refid="par.build.class.path" />					
+		</javac>
+		<copy todir="${build.dir}/lib">
+	   		<fileset dir="${par.project.dir}/lib">
+	   			<exclude name="jplugin2.jar"/>
+	   		</fileset>	
+	  	</copy>
+		
+		<jar destfile="${dist.dir}/${ant.project.name}_${Bundle-Version}.${build.datetime}.par" >	
+			<fileset dir="${build.dir}" />				
+			<manifest>		    	
+				<attribute name="version" value="${ant.project.name}_${Bundle-Version}.${build.datetime}"/>
+				<attribute name="createdBy" value="${user.name}"/>
+				<attribute name="createdOn" value="${build.datetime}"/>
+		    </manifest>	
+	    </jar>
+	
+	</target>
+	<target name="build_tk_jar" depends="prepare,package,clean" />
+	<target name="build_ace_par" depends="prepare.par,par,clean" />
+	<target name="build" depends="build_tk_jar,build_ace_par" />
+		
+</project>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<palette:CategoryCmp xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:palette="http://www.ibm.com/wbi/2005/eflow_palette" xmlns:utility="http://www.ibm.com/wbi/2005/eflow_utility" xmi:id="Ninjas">
+  <categoryLabel xsi:type="utility:TranslatableString" key="category.name" bundleName="palette" pluginId="Ninjas"/>
+  <cmpGroups xsi:type="palette:GroupCmp">
+    <cmpEntries xsi:type="palette:ToolEntry" xmi:id="org.aceninjas.udn.JLog" icon16Name="platform:/plugin/Ninjas/icons/full/clcl16/org/aceninjas/udn/JLog.gif" icon32Name="platform:/plugin/Ninjas/icons/full/obj32/org/aceninjas/udn/JLog.gif" toolClassName="com.ibm.etools.mft.flow.editor.MFTNodeCreationTool" toolClassPluginId="com.ibm.etools.mft.flow" nodeURI="org/aceninjas/udn/JLog.msgnode">
+      <entryLabel xsi:type="utility:TranslatableString" key="entry.org.aceninjas.udn.JLog" bundleName="palette" pluginId="Ninjas"/>
+      <entryShortDescription xsi:type="utility:TranslatableString" key="tooltip.org.aceninjas.udn.JLog" bundleName="palette" pluginId="Ninjas"/>
+    </cmpEntries>
+    <cmpEntries xsi:type="palette:ToolEntry" xmi:id="org.aceninjas.udn.CronScheduler" icon16Name="platform:/plugin/Ninjas/icons/full/clcl16/org/aceninjas/udn/CronScheduler.gif" icon32Name="platform:/plugin/Ninjas/icons/full/obj32/org/aceninjas/udn/CronScheduler.gif" toolClassName="com.ibm.etools.mft.flow.editor.MFTNodeCreationTool" toolClassPluginId="com.ibm.etools.mft.flow" nodeURI="org/aceninjas/udn/CronScheduler.msgnode">
+      <entryLabel xsi:type="utility:TranslatableString" key="entry.org.aceninjas.udn.CronScheduler" bundleName="palette" pluginId="Ninjas"/>
+      <entryShortDescription xsi:type="utility:TranslatableString" key="tooltip.org.aceninjas.udn.CronScheduler" bundleName="palette" pluginId="Ninjas"/>
+    </cmpEntries>
+  </cmpGroups>
+</palette:CategoryCmp>

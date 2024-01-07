@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow="http://www.ibm.com/wbi/2005/eflow" xmlns:utility="http://www.ibm.com/wbi/2005/eflow_utility" nsURI="org/aceninjas/udn/JLog.msgnode" nsPrefix="org_aceninjas_udn_JLog.msgnode">
+  <eClassifiers xmi:type="eflow:FCMComposite" name="FCMComposite_1" useDefaults="true">
+    <eSuperTypes href="http://www.ibm.com/wbi/2005/eflow#//FCMBlock"/>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.text" name="text">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.maxFileSize" name="maxFileSize" defaultValueLiteral="10">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.maxBackupIndex" name="maxBackupIndex" defaultValueLiteral="10">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.file" name="file" lowerBound="1">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.threshold" name="threshold" eType="//%" defaultValueLiteral="debug"/>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.layoutConversionPattern" name="layoutConversionPattern" defaultValueLiteral="%d{yyyy-MM-dd HH:mm:ss} %-5p  [THREAD ID=%t] %C{1}.%M %m%n">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.logMessageBody" name="logMessageBody" defaultValueLiteral="true">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.logException" name="logException" defaultValueLiteral="true">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eStructuralFeatures>
+    <translation xmi:type="utility:TranslatableString" key="JLog" bundleName="org/aceninjas/udn/JLog" pluginId="Ninjas"/>
+    <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/Ninjas/icons/full/obj16/org/aceninjas/udn/JLog.gif"/>
+    <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/Ninjas/icons/full/obj30/org/aceninjas/udn/JLog.gif"/>
+    <composition>
+      <nodes xmi:type="eflow:FCMSource" xmi:id="InTerminal.in" location="100,20">
+        <translation xmi:type="utility:TranslatableString" key="InTerminal.in" bundleName="org/aceninjas/udn/JLog" pluginId="Ninjas"/>
+      </nodes>
+      <nodes xmi:type="eflow:FCMSink" xmi:id="OutTerminal.out" location="200,40">
+        <translation xmi:type="utility:TranslatableString" key="OutTerminal.out" bundleName="org/aceninjas/udn/JLog" pluginId="Ninjas"/>
+      </nodes>
+      <nodes xmi:type="eflow:FCMSink" xmi:id="OutTerminal.failure" location="300,60">
+        <translation xmi:type="utility:TranslatableString" key="OutTerminal.failure" bundleName="org/aceninjas/udn/JLog" pluginId="Ninjas"/>
+      </nodes>
+    </composition>
+    <propertyOrganizer>
+      <propertyDescriptor groupName="Group.Basic" configurable="true" describedAttribute="Property.text">
+        <propertyName xmi:type="utility:TranslatableString" key="Property.text" bundleName="org/aceninjas/udn/JLog" pluginId="Ninjas"/>
+        <propertyDescriptor groupName="Group.Basic" configurable="true" describedAttribute="Property.maxFileSize">
+          <propertyName xmi:type="utility:TranslatableString" key="Property.maxFileSize" bundleName="org/aceninjas/udn/JLog" pluginId="Ninjas"/>
+          <propertyDescriptor groupName="Group.Basic" configurable="true" describedAttribute="Property.maxBackupIndex">
+            <propertyName xmi:type="utility:TranslatableString" key="Property.maxBackupIndex" bundleName="org/aceninjas/udn/JLog" pluginId="Ninjas"/>
+            <propertyDescriptor groupName="Group.Basic" configurable="true" describedAttribute="Property.file">
+              <propertyName xmi:type="utility:TranslatableString" key="Property.file" bundleName="org/aceninjas/udn/JLog" pluginId="Ninjas"/>
+              <propertyDescriptor groupName="Group.Basic" configurable="true" describedAttribute="Property.threshold">
+                <propertyName xmi:type="utility:TranslatableString" key="Property.threshold" bundleName="org/aceninjas/udn/JLog" pluginId="Ninjas"/>
+                <propertyDescriptor groupName="Group.Basic" configurable="true" describedAttribute="Property.layoutConversionPattern">
+                  <propertyName xmi:type="utility:TranslatableString" key="Property.layoutConversionPattern" bundleName="org/aceninjas/udn/JLog" pluginId="Ninjas"/>
+                  <propertyDescriptor groupName="Group.Basic" configurable="true" describedAttribute="Property.logMessageBody">
+                    <propertyName xmi:type="utility:TranslatableString" key="Property.logMessageBody" bundleName="org/aceninjas/udn/JLog" pluginId="Ninjas"/>
+                    <propertyDescriptor groupName="Group.Basic" configurable="true" describedAttribute="Property.logException">
+                      <propertyName xmi:type="utility:TranslatableString" key="Property.logException" bundleName="org/aceninjas/udn/JLog" pluginId="Ninjas"/>
+                    </propertyDescriptor>
+                  </propertyDescriptor>
+                </propertyDescriptor>
+              </propertyDescriptor>
+            </propertyDescriptor>
+          </propertyDescriptor>
+        </propertyDescriptor>
+      </propertyDescriptor>
+    </propertyOrganizer>
+  </eClassifiers>
+  <eClassifiers xmi:type="ecore:EEnum">
+    <eLiterals xmi:id="threshold.debug" name="debug"/>
+    <eLiterals xmi:id="threshold.info" name="info" value="1"/>
+    <eLiterals xmi:id="threshold.trace" name="trace" value="2"/>
+    <eLiterals xmi:id="threshold.warn" name="warn" value="3"/>
+    <eLiterals xmi:id="threshold.error" name="error" value="4"/>
+  </eClassifiers>
+</ecore:EPackage>

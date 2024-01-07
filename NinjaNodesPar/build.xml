@@ -1,0 +1,45 @@
+<project name="NinjaNodes" default="build" >
+	
+	<property file="./build.properties"/>
+	<property name="build.dir" value="./build" />
+	<property name="dist.dir" value="./dist" />
+	<property name="src.dir" value="./src" />
+	
+	<path id="build.class.path">							
+		<fileset dir="./lib">
+		  <filename name="*.jar"/>		  
+		</fileset>
+	</path>
+	
+	<target name="prepare">
+		<mkdir dir="${build.dir}/classes" />		
+	</target>
+	
+	<target name="clean">
+		<delete dir="${build.dir}" />		
+	</target>
+	
+	<target name="jar">		
+		<javac destdir="${build.dir}/classes" deprecation="false" failonerror="true" debug="on">
+			<src path="${src.dir}" />
+			<classpath refid="build.class.path" />					
+		</javac>
+		<copy todir="${build.dir}/lib">
+	   		<fileset dir="lib"/>
+	  	</copy>
+		
+		<jar destfile="${dist.dir}/${ant.project.name}-${version}.par" >	
+			<fileset dir="${build.dir}" />				
+			<manifest>		    	
+				<attribute name="version" value="${version}"/>
+				<attribute name="createdBy" value="${user.name}"/>
+				<attribute name="createdOn" value="${build.datetime}"/>
+		    </manifest>	
+	    </jar>
+		
+		<copy file="${dist.dir}/${ant.project.name}-${version}.par" tofile="${lil.home}/${ant.project.name}-${version}.par"/>		
+	</target>	
+
+	<target name="build" depends="prepare,jar,clean" />
+	
+</project>

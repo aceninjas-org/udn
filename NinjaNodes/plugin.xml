@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+    <!--This is a generated file.-->
+    <!--User modifications to this section will not be preserved.-->
+    <extension point="org.eclipse.help.contexts">
+        <contexts file="HelpContexts.xml" plugin="Ninjas"/>
+    </extension>
+    <!--This is a generated file.-->
+    <!--User modifications to this section will not be preserved.-->
+    <extension point="com.ibm.etools.mft.api.nodes"/>
+    <!--This is a generated file.-->
+    <!--User modifications to this section will not be preserved.-->
+    <extension point="com.ibm.etools.mft.uri.pluginspace">
+        <directory>
+            <file encoding="Cp1252" name="org/aceninjas/udn/CronScheduler.msgnode"/>            
+            <file encoding="Cp1252" name="org/aceninjas/udn/JLog.msgnode"/>
+        </directory>
+    </extension>
+    <!--This is a generated file.-->
+    <!--User modifications to this section will not be preserved.-->
+    <extension point="com.ibm.etools.mft.util.ui.pdHelpContentProviders">
+        <pdHelpContentProvider file="PDHelp.xml"/>
+    </extension>
+</plugin>
